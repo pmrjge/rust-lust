@@ -22,3 +22,8 @@ struct IpAddr {
     kind: IpAddrKind,
     address: String,
 }
+
+enum IpAddrV2 {
+    V4(String),
+    V6(String),
+}
