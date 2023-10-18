@@ -22,6 +22,11 @@ fn main() {
     m.call();
 
     // The option Enum and Its Advantages over Null Values
+    let some_number = Some(5);
+    let some_char = Some('e');
+    let absent_number: Option<i32> = None;
+
+    // The match Control Flow Construct
 }
 
 enum IpAddrKind {
