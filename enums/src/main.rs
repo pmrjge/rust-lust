@@ -33,6 +33,17 @@ fn main() {
     value_in_cents_states(Coin1::Quarter(UsState::Alaska));
 
     // Matching with Option<T>
+    let five = Some(5);
+    let six = plus_one(five);
+    let seven = plus_one(six);
+
+}
+
+fn plus_one(x: Option<i32>) -> Option<i32> {
+    match x {
+        Option::None => Option::None,
+        Some(i) => Some(i + 1),
+    }
 }
 
 fn value_in_cents_states(coin:Coin1) -> u8 {
