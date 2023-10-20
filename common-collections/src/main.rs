@@ -25,4 +25,16 @@ fn main() {
     let does_not_exist = v.get(100);
 
     // Iterating over the values in a vector
+
+    let v = vec![100, 32, 57];
+    for i in &v {
+        println!("{i}");
+    }
+
+    let mut v = vec![100, 32, 57];
+    for i in &mut v {
+        *i += 50;
+    }
+
+    // Using an Enum to store multiple types
 }
