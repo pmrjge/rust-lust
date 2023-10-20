@@ -47,4 +47,14 @@ fn main() {
     let row = vec![SpredsheetCell::Int(3), SpredsheetCell::Text(String::from("blue")), SpredsheetCell::Float(10.12)];
 
     // Dropping a Vector Drops Its Elements
+
+    {
+        let v = vec![1,2,3,4]
+
+        // manipulate v
+
+    } // from here v is released from memory
+
+    // Storing UTF-8 encoded text with strings
+
 }
