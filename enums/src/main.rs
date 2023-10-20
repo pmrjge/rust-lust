@@ -59,8 +59,31 @@ fn main() {
         _ => (),
     };
 
-    // concice control flow with if et
+    // concise control flow with if let
+    let config_max = Some(3u8);
+    match config_max {
+        Some(max) => println!("The maximum is configured to be {max}")
+        _ => (),
+    }
 
+    if let Some(max) = config_max {
+        println!("The maximum is configured to be {max}");
+    }
+
+    let mut count = 0;
+    let coin = Coin1::Quarter(UsState::Alaska);
+    match coin {
+        Coin1::Quarter(state) => println!("State quarter from {:?}!", state),
+        _ => count += 1,
+    }
+
+    let mut count = 0;
+    let coin = Coin1::Quarter(UsState::Alaska);
+    if let Coin1::Quarter(s) = coin {
+        println!("State quarter from {:?}!", s);
+    } else {
+        count += 1;
+    }
 }
 
 fn reroll() -> () {}
