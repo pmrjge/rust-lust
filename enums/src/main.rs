@@ -28,8 +28,37 @@ fn main() {
 
     // The match Control Flow Construct
     value_in_lucky_cents(Coin::Penny);
+
+    // Patterns that Bind To Values
+    value_in_cents_states(Coin1::Quarter(UsState::Alaska));
+
+    // Matching with Option<T>
 }
 
+fn value_in_cents_states(coin:Coin1) -> u8 {
+    match coin {
+        Coin1::Penny => 1,
+        Coin1::Nickel => 5,
+        Coin1::Dime => 10,
+        Coin1::Quarter(state) => {
+            println!("State quarter from {:?}!", state);
+            25
+        },
+    }
+}
+
+#[derive(Debug)]
+enum UsState {
+    Alabama,
+    Alaska,
+}
+
+enum Coin1 {
+    Penny,
+    Nickel,
+    Dime,
+    Quarter(UsState),
+}
 
 fn value_in_lucky_cents(coin: Coin) -> u8 {
     match coin {
