@@ -37,4 +37,14 @@ fn main() {
     }
 
     // Using an Enum to store multiple types
+
+    enum SpredsheetCell {
+        Int(i32),
+        Float(f64),
+        Text(String),
+    }
+
+    let row = vec![SpredsheetCell::Int(3), SpredsheetCell::Text(String::from("blue")), SpredsheetCell::Float(10.12)];
+
+    // Dropping a Vector Drops Its Elements
 }
