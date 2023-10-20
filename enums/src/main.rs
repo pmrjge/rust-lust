@@ -37,7 +37,39 @@ fn main() {
     let six = plus_one(five);
     let seven = plus_one(six);
 
+    // Matches are exhaustive
+    //Catch all patterns and the _ Placeholder
+    let dice_roll = 9;
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        other => move_player(other)
+    }
+
+    let dice_roll = 9;
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        _ => reroll(),
+    }
+
+    match dice_roll {
+        3 => add_fancy_hat(),
+        7 => remove_fancy_hat(),
+        _ => (),
+    };
+
+    // concice control flow with if et
+
 }
+
+fn reroll() -> () {}
+
+fn add_fancy_hat() {}
+
+fn remove_fancy_hat() {}
+
+fn move_player(num_spaces: u8) {}
 
 fn plus_one(x: Option<i32>) -> Option<i32> {
     match x {
