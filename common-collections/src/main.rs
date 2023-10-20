@@ -100,5 +100,14 @@ fn main() {
     let s = format!("{s1}-{s2}-{s3}");
 
     // Indexing into strings
+    // Iterating over strings
+    for c in "Зд".chars() {
+        println!("{c}");
+    }
 
+    for b in "Зд".bytes() {
+        println!("{b}");
+    }
+
+    // Hash Maps
 }
