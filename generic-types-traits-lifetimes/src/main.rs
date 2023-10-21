@@ -1,5 +1,7 @@
 use std::cmp::PartialOrd;
 
+use generic_types_traits_lifetimes::news_article::{Summary, Tweet};
+
 fn main() {
     // Removing Duplication By Extracting a Function
     let number_list = vec![35, 50, 25, 100, 65];
@@ -53,7 +55,21 @@ fn main() {
     println!("p3.x = {}, p3.y={}", p3.x, p3.y);
 
     // Performance of Code Using Generics
+    //Traits
+    // Implementing a trait on a type
+    let tweet = Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from("of course, as you probably already know, people"),
+        reply: false,
+        retweet: false,
+    };
+
+    println!("1 new tweet: {}", tweet.summarize())
+
+    // Default implementations
 }
+
+
 
 struct Point0<T, U> {
     x: T,
