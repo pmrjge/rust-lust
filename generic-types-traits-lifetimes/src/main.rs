@@ -44,6 +44,15 @@ fn main() {
     let integer_and_float = Point0{x:5, y: 4.0};
 
     // In Enum Definitions
+    // In method definitions
+    println!("p.x = {}", integer.x());
+
+    let p1 = Point0 {x: 5, y: 10.4};
+    let p2 = Point0 {x: "Hello", y: 'c'};
+    let p3 = p1.mixup(p2);
+    println!("p3.x = {}, p3.y={}", p3.x, p3.y);
+
+    // Performance of Code Using Generics
 }
 
 struct Point0<T, U> {
@@ -51,9 +60,30 @@ struct Point0<T, U> {
     y: U,
 }
 
+impl<T, U> Point0<T, U> {
+    fn mixup<V, W>(self, other: Point0<V, W>) -> Point0<T, W> {
+        Point0 {
+            x: self.x,
+            y: other.y
+        }
+    }
+}
+
 struct Point<T> {
     x: T,
     y: T,
+}
+
+impl<T> Point<T>{
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+
+impl Point<f32> {
+    fn distance_from_origin(&self) -> f32 {
+        (self.x.powi(2) + self.y.powi(2)).sqrt()
+    }
 }
 
 fn find_largest<T: PartialOrd>(list: &[T]) -> &T {
