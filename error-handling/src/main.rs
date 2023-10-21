@@ -47,6 +47,8 @@ fn main() {
     // A shortcut for propagating errors: The ? Operator
     // Where the ? operator can be used
 
+    // To Panic or not to panic!
+
 }
 
 enum Result1<T,E> {
@@ -87,4 +89,8 @@ fn read_username_from_file2() -> Result<String, io::Error> {
 
 fn read_username_from_file_short() -> Result<String, io::Error> {
     fs::read_to_string("hello.txt")
+}
+
+fn last_char_of_first_line(text: &str) -> Option<char> {
+    text.lines().next()?.chars().last()
 }
