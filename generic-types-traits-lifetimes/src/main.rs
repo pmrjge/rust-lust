@@ -67,8 +67,26 @@ fn main() {
     println!("1 new tweet: {}", tweet.summarize())
 
     // Default implementations
+    // Traits as Parameters
+    // Trait bound syntax
+    // Specifying multiple trait bounds with the + Syntax
+    // Clearer trait bounds with where clauses
+
+    // Using Trait Bounds to Conditionally Implement methods
+
+    // Validating References With Lifetimes
+
 }
 
+
+/*fn returns_summarizable(switch: bool) -> impl Summary {
+    if switch {
+        // something
+    }
+    else {
+        // something else
+    }
+}*/
 
 
 struct Point0<T, U> {
