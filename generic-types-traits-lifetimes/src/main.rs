@@ -35,6 +35,25 @@ fn main() {
 
     let result = largest_char(&char_list);
     println!("The largest char is {result}");
+
+    let integer = Point {x: 5, y: 10};
+    let float = Point {x: 1.0, y:4.0};
+
+    let both_integer = Point0 {x:5, y:10};
+    let both_float = Point0 {x: 1.0, y: 4.0};
+    let integer_and_float = Point0{x:5, y: 4.0};
+
+    // In Enum Definitions
+}
+
+struct Point0<T, U> {
+    x: T,
+    y: U,
+}
+
+struct Point<T> {
+    x: T,
+    y: T,
 }
 
 fn find_largest<T: PartialOrd>(list: &[T]) -> &T {
