@@ -1,4 +1,5 @@
-
+use std::thread;
+use std::time::Duration;
 
 #[derive(Debug, PartialEq, Copy, Clone)]
 enum ShirtColor {
@@ -46,4 +47,44 @@ fn main(){
     let user_pref2 = None;
     let giveaway2 = store.giveaway(user_pref2);
     println!("The user with preference {:?} get {:?}", user_pref2, giveaway2);
+
+    let expensive_closure = |num: u32| -> u32 {
+        println!("calculating slowly...");
+        thread::sleep(Duration::from_secs(2));
+        num
+    };
+
+    fn add_one_v1 (x: u32) -> u32 {x + 1}
+
+    let add_one_v2 = |x: u32| -> u32 {x + 1};
+    let add_one_v3 = |x: u32| {x + 1};
+    let add_one_v4 = |x: u32| x+1;
+
+    let example_closure = |x| x;
+    let s = example_closure(String::from("hello"));
+    // Capturing references or moving ownership
+    let list = vec![1,2,3];
+    println!("Before defining closure: {:?}", list);
+
+    let only_borrows = || println!("From closure: {:?}", list);
+
+    println!("Before calling closure {:?}", list);
+    only_borrows();
+    println!("After calling closure: {:?}", list);
+
+    #[derive(Debug)]
+    struct Rectangle {
+        width: u32,
+        height: u32,
+    }
+
+    let mut list = [Rectangle{ width: 10, height: 1},
+        Rectangle{width: 3, height: 5},
+        Rectangle{width: 7, height: 12},
+    ];
+
+    list.sort_by_key(|r| r.width);
+    println!("{:#?}", list);
+
+    // Processing a series of items with iterators
 }
